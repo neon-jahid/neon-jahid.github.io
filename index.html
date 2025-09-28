@@ -1,1 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jahid Hasan — Portfolio</title>
+  <meta name="description" content="Jahid Hasan — Web Developer & Maintenance Engineer at Softwind Tech Ltd. Portfolio, projects, skills, and contact." />
+  <meta name="author" content="Jahid Hasan" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='80'>⚡️</text></svg>">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Jahid Hasan — Portfolio" />
+  <meta property="og:description" content="Web Developer & Maintenance Engineer at Softwind Tech Ltd. Selected work: Robi, Airtel, Ncell, DBL Ceramics, Laxfo." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://dummyimage.com/1200x630/111827/ffffff&text=Jahid+Hasan" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    :root{
+      --bg: #0b1020;
+      --card: #121a33;
+      --text: #e6e9f2;
+      --muted: #9aa4b2;
+      --accent: #6ee7b7; /* mint */
+      --accent-2: #60a5fa; /* blue */
+      --border: #1f2a4a;
+      --shadow: 0 10px 30px rgba(0,0,0,.25);
+      --radius: 16px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg: #f7fafc;
+        --card: #ffffff;
+        --text: #0f172a;
+        --muted: #475569;
+        --accent: #0ea5e9;
+        --accent-2: #22c55e;
+        --border: #e2e8f0;
+        --shadow: 0 8px 24px rgba(2,6,23,.08);
+      }
+    }
+    *{ box-sizing: border-box }
+    html,body{ height:100% }
+    body{
+      margin:0; background: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.6; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    }
+    a{ color: inherit; text-decoration: none }
+    .container{ width:min(1080px, 92%); margin-inline:auto; }
+    header{
+      position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px);
+      background: color-mix(in oklab, var(--bg), transparent 30%);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav{ display:flex; align-items:center; justify-content:space-between; padding: 14px 0; }
+    .brand{ display:flex; align-items:center; gap:.6rem; font-weight:700; letter-spacing:.2px }
+    .brand .logo{
+      width:36px; height:36px; border-radius:10px; display:grid; place-items:center; font-weight:800; box-shadow: var(--shadow);
+      background: linear-gradient(135deg, var(--accent), var(--accent-2)); color:#0b1020;
+    }
+    .nav a.button{ padding:.6rem .9rem; border:1px solid var(--border); border-radius: 10px; transition:.2s ease; }
+    .nav a.button:hover{ transform: translateY(-1px); border-color: color-mix(in oklab, var(--accent), var(--border) 60%); }
+
+    .hero{ display:grid; grid-template-columns: 1.3fr .9fr; gap: clamp(20px, 4vw, 42px); padding: 54px 0 36px; align-items:center; }
+    @media (max-width: 900px){ .hero{ grid-template-columns: 1fr; padding: 34px 0 18px } }
+
+    .card{ background: var(--card); border:1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .hero .intro{ padding: clamp(18px, 4vw, 32px); }
+    .kicker{ text-transform: uppercase; font-size:.78rem; letter-spacing:.18em; color: var(--muted); }
+    h1{ font-size: clamp(2rem, 4vw + .8rem, 3.4rem); line-height:1.1; margin:.3rem 0 1rem }
+    .subtitle{ font-size: clamp(1rem, 1.4vw + .6rem, 1.25rem); color: var(--muted) }
+
+    .meta{ display:flex; flex-wrap: wrap; gap:.75rem; margin: 1.25rem 0 0 }
+    .chip{ font-size:.92rem; padding:.4rem .6rem; border:1px solid var(--border); border-radius: 999px; color: var(--muted) }
+
+    .cta-row{ display:flex; flex-wrap:wrap; gap:.6rem; margin: 1.25rem 0 0 }
+    .cta{ display:inline-flex; align-items:center; gap:.5rem; padding:.7rem 1rem; border-radius:10px; border:1px solid var(--border); transition:.2s ease; font-weight:600 }
+    .cta.primary{ background: linear-gradient(135deg, var(--accent), var(--accent-2)); color:#0b1020; border-color: transparent }
+    .cta:hover{ transform: translateY(-2px); }
+
+    .portrait{
+      aspect-ratio: 4 / 3; border-radius: var(--radius); overflow:hidden; position:relative; display:grid; place-items:center; padding: 30px;
+    }
+    .portrait::after{ content:""; position:absolute; inset:0; background: radial-gradient(80% 60% at 65% 30%, color-mix(in oklab, var(--accent), transparent 80%), transparent 70%); mix-blend-mode: screen; opacity:.7 }
+    .portrait svg{ width: 60%; max-width: 260px }
+
+    section{ padding: 28px 0 }
+    h2{ font-size: clamp(1.4rem, 1.6vw + .8rem, 2rem); margin: 0 0 14px }
+
+    .grid{ display:grid; gap: 16px }
+    .grid.projects{ grid-template-columns: repeat(12, 1fr); }
+    .project{ grid-column: span 6; padding:16px; }
+    .project .inner{ display:flex; flex-direction:column; gap:10px; }
+    .project .title{ font-weight:700; font-size:1.1rem }
+    .project .tags{ display:flex; flex-wrap:wrap; gap:.4rem }
+    .tag{ font-size:.78rem; padding:.28rem .5rem; background: color-mix(in oklab, var(--card), #000 6%); border:1px solid var(--border); border-radius:999px; color: var(--muted) }
+    .project .footer{ display:flex; align-items:center; justify-content:space-between; gap:.6rem; margin-top:.4rem }
+
+    @media (max-width: 900px){ .project{ grid-column: span 12 } }
+
+    .two-col{ display:grid; grid-template-columns: 1fr 1fr; gap: 16px }
+    @media (max-width: 900px){ .two-col{ grid-template-columns: 1fr } }
+
+    ul.clean{ list-style:none; padding:0; margin:0; display:grid; gap:8px }
+    li.item{ display:flex; align-items:flex-start; gap:.6rem; padding:12px; border:1px dashed var(--border); border-radius:12px }
+    .item .dot{ width:10px; height:10px; border-radius:999px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); margin-top: .4rem }
+
+    footer{ padding: 32px 0 54px; color: var(--muted); }
+    .footer-inner{ display:flex; align-items:center; justify-content:space-between; flex-wrap: wrap; gap: 10px; border-top:1px solid var(--border); padding-top: 16px }
+
+    /* small util */
+    .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0 }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#top" class="brand">
+        <span class="logo" aria-hidden>JH</span>
+        <span>Jahid Hasan</span>
+      </a>
+      <nav style="display:flex; gap:.4rem">
+        <a class="button" href="#projects">Projects</a>
+        <a class="button" href="#skills">Skills</a>
+        <a class="button" href="#experience">Experience</a>
+        <a class="button" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <section class="hero">
+      <div class="intro card">
+        <div class="kicker">Web Developer & Maintenance Engineer</div>
+        <h1>Hi, I’m Jahid Hasan.</h1>
+        <p class="subtitle">I build reliable web experiences and keep complex systems running smoothly at <strong>Softwind Tech Ltd</strong>.</p>
+        <div class="meta">
+          <span class="chip">JavaScript • TypeScript</span>
+          <span class="chip">React • Next.js</span>
+          <span class="chip">Node.js • Express</span>
+          <span class="chip">PHP • Laravel</span>
+          <span class="chip">MySQL • PostgreSQL</span>
+          <span class="chip">CI/CD • Linux</span>
+        </div>
+        <div class="cta-row">
+          <a class="cta primary" href="https://github.com/your-github-username" target="_blank" rel="noopener">View GitHub</a>
+          <a class="cta" href="#contact">Contact Me</a>
+          <a class="cta" href="resume.pdf" download>Download Résumé</a>
+        </div>
+      </div>
+      <div class="portrait card" aria-hidden>
+        <!-- Simple SVG illustration placeholder -->
+        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+          <defs>
+            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="currentColor"/>
+              <stop offset="100%" stop-color="currentColor" stop-opacity=".3"/>
+            </linearGradient>
+          </defs>
+          <rect x="10" y="10" width="180" height="180" rx="24" stroke="url(#g)" stroke-width="2"/>
+          <circle cx="100" cy="75" r="28" stroke="currentColor" opacity=".9"/>
+          <rect x="50" y="120" width="100" height="40" rx="12" stroke="currentColor" opacity=".9"/>
+        </svg>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Selected Projects</h2>
+      <p class="subtitle">A snapshot of brands and platforms I’ve contributed to.</p>
+      <div class="grid projects">
+        <!-- Project 1: Robi -->
+        <article class="project card">
+          <div class="inner">
+            <div class="title">Robi</div>
+            <p>Worked on performance optimizations and component refactors across user-facing flows to improve Core Web Vitals.</p>
+            <div class="tags">
+              <span class="tag">Next.js</span>
+              <span class="tag">React</span>
+              <span class="tag">Web Vitals</span>
+              <span class="tag">CI/CD</span>
+            </div>
+            <div class="footer">
+              <span class="subtitle">Telco • Bangladesh</span>
+              <a class="cta" href="#" aria-label="Robi case study link">Case study</a>
+            </div>
+          </div>
+        </article>
+        <!-- Project 2: Airtel -->
+        <article class="project card">
+          <div class="inner">
+            <div class="title">Airtel</div>
+            <p>Maintenance engineering for high-traffic marketing pages with automated deployments and uptime monitoring.</p>
+            <div class="tags">
+              <span class="tag">SSR</span>
+              <span class="tag">Monitoring</span>
+              <span class="tag">Automation</span>
+            </div>
+            <div class="footer">
+              <span class="subtitle">Telco • South Asia</span>
+              <a class="cta" href="#" aria-label="Airtel case study link">Case study</a>
+            </div>
+          </div>
+        </article>
+        <!-- Project 3: Ncell -->
+        <article class="project card">
+          <div class="inner">
+            <div class="title">Ncell</div>
+            <p>Revamped frontend build system and introduced component library for consistent UI across properties.</p>
+            <div class="tags">
+              <span class="tag">Design System</span>
+              <span class="tag">Vite</span>
+              <span class="tag">Storybook</span>
+            </div>
+            <div class="footer">
+              <span class="subtitle">Telco • Nepal</span>
+              <a class="cta" href="#" aria-label="Ncell case study link">Case study</a>
+            </div>
+          </div>
+        </article>
+        <!-- Project 4: DBL Ceramics -->
+        <article class="project card">
+          <div class="inner">
+            <div class="title">DBL Ceramics</div>
+            <p>Built product catalog UX and admin workflows; improved search and filtering for faster discovery.</p>
+            <div class="tags">
+              <span class="tag">Laravel</span>
+              <span class="tag">Alpine.js</span>
+              <span class="tag">MySQL</span>
+            </div>
+            <div class="footer">
+              <span class="subtitle">Manufacturing • Bangladesh</span>
+              <a class="cta" href="#" aria-label="DBL Ceramics case study link">Case study</a>
+            </div>
+          </div>
+        </article>
+        <!-- Project 5: Laxfo -->
+        <article class="project card">
+          <div class="inner">
+            <div class="title">Laxfo</div>
+            <p>Implemented a modern SPA with authentication and role-based dashboards, backed by REST APIs.</p>
+            <div class="tags">
+              <span class="tag">React</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">REST</span>
+            </div>
+            <div class="footer">
+              <span class="subtitle">Technology</span>
+              <a class="cta" href="#" aria-label="Laxfo case study link">Case study</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="two-col">
+        <div class="card" style="padding:16px">
+          <h3>Frontend</h3>
+          <ul class="clean">
+            <li class="item"><span class="dot"></span><span>HTML5, CSS3, Sass, Tailwind</span></li>
+            <li class="item"><span class="dot"></span><span>React, Next.js, Vite</span></li>
+            <li class="item"><span class="dot"></span><span>TypeScript, Zustand, React Query</span></li>
+            <li class="item"><span class="dot"></span><span>Accessibility (WCAG), Web Performance</span></li>
+          </ul>
+        </div>
+        <div class="card" style="padding:16px">
+          <h3>Backend & Ops</h3>
+          <ul class="clean">
+            <li class="item"><span class="dot"></span><span>Node.js, Express, NestJS</span></li>
+            <li class="item"><span class="dot"></span><span>PHP, Laravel</span></li>
+            <li class="item"><span class="dot"></span><span>MySQL, PostgreSQL, Prisma, Redis</span></li>
+            <li class="item"><span class="dot"></span><span>Linux, Nginx, Docker, GitHub Actions</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="card" style="padding:16px">
+        <ul class="clean">
+          <li class="item">
+            <span class="dot"></span>
+            <div>
+              <strong>Softwind Tech Ltd</strong> — Web Developer & Maintenance Engineer
+              <div class="subtitle">Ensuring reliability of production systems, building features, and automating deploy + monitoring.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="two-col">
+        <div class="card" style="padding:16px">
+          <p class="subtitle">Let’s talk about your project, collaboration, or speaking.</p>
+          <ul class="clean">
+            <li class="item"><span class="dot"></span><span>Email: <a href="mailto:you@example.com">you@example.com</a></span></li>
+            <li class="item"><span class="dot"></span><span>GitHub: <a href="https://github.com/your-github-username" target="_blank" rel="noopener">github.com/your-github-username</a></span></li>
+            <li class="item"><span class="dot"></span><span>LinkedIn: <a href="https://linkedin.com/in/your-handle" target="_blank" rel="noopener">linkedin.com/in/your-handle</a></span></li>
+            <li class="item"><span class="dot"></span><span>Location: Dhaka, Bangladesh</span></li>
+          </ul>
+        </div>
+        <form class="card" style="padding:16px" onsubmit="event.preventDefault(); alert('Thanks! Your message is ready to be wired to an email service.');">
+          <label class="sr-only" for="name">Name</label>
+          <input id="name" name="name" placeholder="Your name" required style="width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--border); background:var(--bg); color:var(--text); margin-bottom:10px">
+          <label class="sr-only" for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Your email" required style="width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--border); background:var(--bg); color:var(--text); margin-bottom:10px">
+          <label class="sr-only" for="message">Message</label>
+          <textarea id="message" name="message" rows="4" placeholder="Tell me about your project..." required style="width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--border); background:var(--bg); color:var(--text); margin-bottom:10px"></textarea>
+          <button class="cta primary" type="submit" style="width:100%; justify-content:center">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> Jahid Hasan. All rights reserved.</div>
+      <div style="display:flex; gap:.6rem">
+        <a class="button" href="#top">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Update year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Small scroll reveal: observe cards and fade them in
+    const reveal = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.animate([
+            { opacity: 0, transform: 'translateY(8px)' },
+            { opacity: 1, transform: 'translateY(0px)' }
+          ], { duration: 500, easing: 'ease-out', fill: 'both' });
+          reveal.unobserve(e.target);
+        }
+      });
+    }, { threshold: .06 });
+    document.querySelectorAll('.card, .project').forEach(el => reveal.observe(el));
+  </script>
+</body>
+</html>
 
